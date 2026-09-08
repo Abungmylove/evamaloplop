@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import { Play, Pause, Volume2, VolumeX, ExternalLink, SkipForward, SkipBack } from 'lucide-react';
 import { SongTrack } from '../data/soundtracks';
 import { getAssetUrl } from '../utils/assetUrl';
@@ -21,13 +21,25 @@ export const MusicPlayerBar: React.FC<MusicPlayerBarProps> = ({
   const [progress, setProgress] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const lastTrackIdRef = useRef<string>(currentTrack.id);
 
-  // Play / Pause audio element when isPlaying or currentTrack changes
+  // Play / Pause and handle startTime: 60s when track changes or starts
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
+    if (lastTrackIdRef.current !== currentTrack.id) {
+      lastTrackIdRef.current = currentTrack.id;
+      if (currentTrack.startTime !== undefined) {
+        audio.currentTime = currentTrack.startTime;
+      }
+    }
+
     if (isPlaying) {
+      // If audio is at 0 and track has startTime, jump to startTime (e.g. 1st minute)
+      if (audio.currentTime === 0 && currentTrack.startTime !== undefined) {
+        audio.currentTime = currentTrack.startTime;
+      }
       const playPromise = audio.play();
       if (playPromise !== undefined) {
         playPromise.catch((error) => {
@@ -45,6 +57,13 @@ export const MusicPlayerBar: React.FC<MusicPlayerBarProps> = ({
       audioRef.current.muted = isMuted;
     }
   }, [isMuted]);
+
+  // Set initial startTime when audio metadata is loaded
+  const handleLoadedMetadata = () => {
+    if (audioRef.current && currentTrack.startTime !== undefined && audioRef.current.currentTime === 0) {
+      audioRef.current.currentTime = currentTrack.startTime;
+    }
+  };
 
   // Time update for progress bar
   const handleTimeUpdate = () => {
@@ -65,6 +84,7 @@ export const MusicPlayerBar: React.FC<MusicPlayerBarProps> = ({
       <audio
         ref={audioRef}
         src={getAssetUrl(currentTrack.audioSrc)}
+        onLoadedMetadata={handleLoadedMetadata}
         onTimeUpdate={handleTimeUpdate}
         onEnded={handleEnded}
         preload="auto"

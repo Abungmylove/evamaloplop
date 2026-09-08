@@ -11,14 +11,22 @@ import { FlowerWidget } from './components/FlowerWidget';
 import { MusicPlayerBar } from './components/MusicPlayerBar';
 import { BackgroundAesthetics } from './components/BackgroundAesthetics';
 import { AnimatedSection } from './components/AnimatedSection';
+import { EnvelopeOpening } from './components/EnvelopeOpening';
 import { SongTrack, LOVE_SOUNDTRACKS } from './data/soundtracks';
 
 export const App: React.FC = () => {
+  const [hasOpenedEnvelope, setHasOpenedEnvelope] = useState<boolean>(false);
   const [currentTrack, setCurrentTrack] = useState<SongTrack>(LOVE_SOUNDTRACKS[0]);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [loveCount, setLoveCount] = useState<number>(520);
   const [flowerCount, setFlowerCount] = useState<number>(99);
   const [flowerRainEnabled, setFlowerRainEnabled] = useState<boolean>(true);
+
+  // When envelope is opened, automatically play the song starting at the 1st minute!
+  const handleOpenEnvelope = () => {
+    setHasOpenedEnvelope(true);
+    setIsPlaying(true);
+  };
 
   const handleToggleMusic = () => {
     setIsPlaying((prev) => !prev);
@@ -57,6 +65,11 @@ export const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#3D040A] text-[#1F1D1B] font-sans selection:bg-rose-600 selection:text-white relative">
+      {/* 1. Envelope Opening Screen (like TikTok reference) */}
+      {!hasOpenedEnvelope && (
+        <EnvelopeOpening onOpen={handleOpenEnvelope} />
+      )}
+
       {/* Dynamic Visual Background (Glows, Film Grain, Grid, Editorial Markers) */}
       <BackgroundAesthetics />
 
