@@ -88,7 +88,7 @@ export const Hero: React.FC = () => {
 
           {/* Quote Block (Ref 1 aesthetic: italic editorial serif) */}
           <div className="border-l-2 border-rose-400 pl-4 py-1 italic font-editorial text-xl sm:text-2xl text-[#3D352E]">
-            &ldquo;What I have with you, I don&apos;t want with anyone else.&rdquo;
+            &ldquo;What I have with you, I don&apos;t want it with anyone else.&rdquo;
           </div>
 
           {/* Live Relationship Counter */}
