@@ -21,17 +21,31 @@ export const OpeningSequence: React.FC<OpeningSequenceProps> = ({ onSequenceComp
 
   const handleBloomComplete = () => {
     setStage('mixtape');
+    
+    // Auto-advance to the main website after 5 seconds of seeing the mixtape
+    // in case the user doesn't know they need to click play.
+    setTimeout(() => {
+      setStage((prev) => {
+        if (prev === 'mixtape') {
+           setTimeout(() => {
+             onSequenceComplete(currentTrack);
+           }, 1000);
+           return 'fading_out';
+        }
+        return prev;
+      });
+    }, 5000);
   };
 
   const handleTogglePlay = () => {
-    setIsPlaying(true); // Always play when clicked first time
+    setIsPlaying(true);
     // Once they press play on the mixtape, we start fading out the entire opening to reveal the main site!
     setTimeout(() => {
       setStage('fading_out');
       setTimeout(() => {
         onSequenceComplete(currentTrack);
-      }, 1000); // 1s crossfade to main site
-    }, 1500); // give it 1.5s to see the cassette spin before going to main site
+      }, 1000); 
+    }, 1500); 
   };
 
   return (
