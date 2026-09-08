@@ -54,7 +54,7 @@ export const MinimalLoveLetter: React.FC<MinimalLoveLetterProps> = ({
           </p>
 
           <p className="font-editorial italic text-xl sm:text-2xl text-[#8B1220]">
-            &ldquo;What I have with you, I don&apos;t want it with anyone else.&rdquo;
+            &ldquo;When I&apos;m with you, I don&apos;t think about anyone else.&rdquo;
           </p>
 
           <p className="font-editorial italic text-xl text-[#1F1D1B] pt-2">

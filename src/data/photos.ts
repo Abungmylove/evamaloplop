@@ -601,7 +601,7 @@ export const TIMELINE_EVENTS = [
     title: 'Hari Spesial: Kamera & Deburan Ombak',
     badge: 'PRECIOUS REUNION',
     description: 'Saat akhirnya bisa bertatap muka secara langsung. Menghabiskan waktu di pantai bersama, mengabadikan senyum manismu di depan deburan ombak.',
-    quote: '"What I have with you, I don\'t want it with anyone else."'
+    quote: '"When I\'m with you, I don\'t think about anyone else."'
   },
   {
     date: 'Menatap Hari Esok',
