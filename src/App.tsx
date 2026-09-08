@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Navbar } from './components/Navbar';
 import { EnvelopeOpening } from './components/EnvelopeOpening';
-import { CassettePlayer } from './components/CassettePlayer';
+import { MixtapeCard } from './components/MixtapeCard';
 import { SongTrack, LOVE_SOUNDTRACKS } from './data/soundtracks';
 import { getAssetUrl } from './utils/assetUrl';
 
@@ -9,8 +8,6 @@ export const App: React.FC = () => {
   const [hasOpenedEnvelope, setHasOpenedEnvelope] = useState<boolean>(false);
   const [currentTrack, setCurrentTrack] = useState<SongTrack>(LOVE_SOUNDTRACKS[0]);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [loveCount, setLoveCount] = useState<number>(520);
-  const [flowerCount, setFlowerCount] = useState<number>(99);
   
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const lastTrackIdRef = useRef<string>(currentTrack.id);
@@ -49,6 +46,11 @@ export const App: React.FC = () => {
     setIsPlaying(!isPlaying);
   };
 
+  const handleSelectTrack = (track: SongTrack) => {
+    setCurrentTrack(track);
+    setIsPlaying(true);
+  };
+
   const handleNextTrack = () => {
     const currentIndex = LOVE_SOUNDTRACKS.findIndex((t) => t.id === currentTrack.id);
     const nextIndex = (currentIndex + 1) % LOVE_SOUNDTRACKS.length;
@@ -56,18 +58,8 @@ export const App: React.FC = () => {
     setIsPlaying(true);
   };
 
-  const handlePrevTrack = () => {
-    const currentIndex = LOVE_SOUNDTRACKS.findIndex((t) => t.id === currentTrack.id);
-    const prevIndex = (currentIndex - 1 + LOVE_SOUNDTRACKS.length) % LOVE_SOUNDTRACKS.length;
-    setCurrentTrack(LOVE_SOUNDTRACKS[prevIndex]);
-    setIsPlaying(true);
-  };
-
-  const handleAddLove = () => setLoveCount((prev) => prev + 1);
-  const handleAddFlower = () => setFlowerCount((prev) => prev + 1);
-
   return (
-    <div className="min-h-screen relative font-sans selection:bg-rose-600 selection:text-white flex flex-col">
+    <div className="min-h-screen relative font-sans selection:bg-rose-200 selection:text-stone-900 flex flex-col items-center justify-center bg-[#FDF8F0] overflow-hidden">
       
       {/* Hidden Audio Player */}
       <audio
@@ -82,28 +74,14 @@ export const App: React.FC = () => {
         preload="auto"
       />
 
-      {/* Background Floral Wallpaper (Main Content Background) */}
+      {/* Background Floral Wallpaper - huge single image like the end of the zoom */}
       <div 
-        className="fixed inset-0 z-0 pointer-events-none opacity-40"
-        style={{
-          backgroundColor: '#FDF8F0',
-          backgroundImage: `url('${getAssetUrl('/bunga/output-onlinepngtools.png')}')`,
-          backgroundSize: '800px',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'repeat',
-        }}
-      />
-      <div className="fixed inset-0 z-0 bg-[#FDF8F0]/70 pointer-events-none" />
-
-      {/* Navbar (Optional, keeping it for the navigation) */}
-      <div className="relative z-40">
-        <Navbar
-          isPlaying={isPlaying}
-          onToggleMusic={handleToggleMusic}
-          loveCount={loveCount}
-          onAddLove={handleAddLove}
-          flowerCount={flowerCount}
-          onAddFlower={handleAddFlower}
+        className={`fixed inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-[2000ms] ${hasOpenedEnvelope ? 'opacity-100' : 'opacity-0'}`}
+      >
+        <img
+          src={getAssetUrl('/bunga/output-onlinepngtools.png')}
+          alt="Floral background"
+          className="w-full h-full object-cover sm:object-contain scale-[2] sm:scale-[4] opacity-80"
         />
       </div>
 
@@ -112,20 +90,14 @@ export const App: React.FC = () => {
         <EnvelopeOpening onOpen={handleOpenEnvelope} />
       )}
 
-      {/* Main Content (Cassette Player) */}
-      <main className="relative z-10 flex-1 flex flex-col items-center justify-center p-4">
-        <CassettePlayer 
+      {/* Main Content (Mixtape Card) */}
+      <main className={`relative z-10 w-full flex justify-center p-4 transition-all duration-[2000ms] ease-out ${hasOpenedEnvelope ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'}`}>
+        <MixtapeCard 
           currentTrack={currentTrack}
           isPlaying={isPlaying}
           onTogglePlay={handleToggleMusic}
-          onNextTrack={handleNextTrack}
-          onPrevTrack={handlePrevTrack}
+          onSelectTrack={handleSelectTrack}
         />
-        
-        {/* Simple message below cassette */}
-        <p className="mt-12 font-editorial italic text-stone-600 text-lg text-center max-w-md">
-          "A playlist of our forever moments. Just for you, Eva."
-        </p>
       </main>
 
     </div>
