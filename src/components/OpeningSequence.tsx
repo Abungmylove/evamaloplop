@@ -20,32 +20,13 @@ export const OpeningSequence: React.FC<OpeningSequenceProps> = ({ onSequenceComp
   };
 
   const handleBloomComplete = () => {
-    setStage('mixtape');
+    // When the CSS flower finishes blooming, immediately start fading out
+    setStage('fading_out');
     
-    // Auto-advance to the main website after 5 seconds of seeing the mixtape
-    // in case the user doesn't know they need to click play.
+    // Give it 1 second for the fade out transition before revealing the main red website
     setTimeout(() => {
-      setStage((prev) => {
-        if (prev === 'mixtape') {
-           setTimeout(() => {
-             onSequenceComplete(currentTrack);
-           }, 1000);
-           return 'fading_out';
-        }
-        return prev;
-      });
-    }, 5000);
-  };
-
-  const handleTogglePlay = () => {
-    setIsPlaying(true);
-    // Once they press play on the mixtape, we start fading out the entire opening to reveal the main site!
-    setTimeout(() => {
-      setStage('fading_out');
-      setTimeout(() => {
-        onSequenceComplete(currentTrack);
-      }, 1000); 
-    }, 1500); 
+      onSequenceComplete(currentTrack);
+    }, 1000);
   };
 
   return (
@@ -88,31 +69,6 @@ export const OpeningSequence: React.FC<OpeningSequenceProps> = ({ onSequenceComp
         style={{ opacity: stage === 'bloom' ? 1 : 0 }}
       >
         {stage === 'bloom' && <CSSFlower onComplete={handleBloomComplete} />}
-      </div>
-
-      {/* 3. Mixtape State (TikTok UI) */}
-      {/* The background becomes a large blurred floral pattern when Mixtape arrives */}
-      <div 
-        className={`absolute inset-0 pointer-events-none transition-all duration-2000 ${stage === 'mixtape' || stage === 'fading_out' ? 'opacity-80 scale-100' : 'opacity-0 scale-50'}`}
-        style={{
-          backgroundImage: `url('${getAssetUrl('/bunga/output-onlinepngtools.png')}')`,
-          backgroundSize: '400px',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'repeat',
-        }}
-      />
-      
-      <div 
-        className={`absolute inset-0 flex items-center justify-center transition-all duration-[1500ms] ease-out ${
-          stage === 'mixtape' ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 translate-y-10 scale-95 pointer-events-none'
-        }`}
-      >
-        <MixtapeCard 
-          currentTrack={currentTrack}
-          isPlaying={isPlaying}
-          onTogglePlay={handleTogglePlay}
-          onSelectTrack={(t) => setCurrentTrack(t)}
-        />
       </div>
 
     </div>

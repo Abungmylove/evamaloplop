@@ -50,7 +50,7 @@ export const MinimalLoveLetter: React.FC<MinimalLoveLetterProps> = ({
 
           <p className="font-editorial text-lg sm:text-xl text-[#4A433D] leading-relaxed">
             Loving you across 850 kilometers between Tangerang and Malang has been the most beautiful journey. 
-            Thank you for your warmth, your laughter, and the unforgettable moments we shared at the beach.
+            Thank you for your warmth, your laughter, and every single unforgettable moment we share together.
           </p>
 
           <p className="font-editorial italic text-xl sm:text-2xl text-[#8B1220]">
