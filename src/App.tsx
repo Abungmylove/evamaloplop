@@ -1,18 +1,9 @@
-﻿import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
-import { HeroEditorial } from './components/HeroEditorial';
-import { CenterCalligraphyRibbon } from './components/CenterCalligraphyRibbon';
-import { LoveSongsVinyl } from './components/LoveSongsVinyl';
-import { PhotobookCarousel } from './components/PhotobookCarousel';
-import { MinimalLoveLetter } from './components/MinimalLoveLetter';
-import { Footer } from './components/Footer';
-import { FlowerRain } from './components/FlowerRain';
-import { FlowerWidget } from './components/FlowerWidget';
-import { MusicPlayerBar } from './components/MusicPlayerBar';
-import { BackgroundAesthetics } from './components/BackgroundAesthetics';
-import { AnimatedSection } from './components/AnimatedSection';
 import { EnvelopeOpening } from './components/EnvelopeOpening';
+import { CassettePlayer } from './components/CassettePlayer';
 import { SongTrack, LOVE_SOUNDTRACKS } from './data/soundtracks';
+import { getAssetUrl } from './utils/assetUrl';
 
 export const App: React.FC = () => {
   const [hasOpenedEnvelope, setHasOpenedEnvelope] = useState<boolean>(false);
@@ -20,21 +11,42 @@ export const App: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [loveCount, setLoveCount] = useState<number>(520);
   const [flowerCount, setFlowerCount] = useState<number>(99);
-  const [flowerRainEnabled, setFlowerRainEnabled] = useState<boolean>(true);
+  
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const lastTrackIdRef = useRef<string>(currentTrack.id);
 
-  // When envelope is opened, automatically play the song starting at the 1st minute!
+  // Audio Logic
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (lastTrackIdRef.current !== currentTrack.id) {
+      lastTrackIdRef.current = currentTrack.id;
+      if (currentTrack.startTime !== undefined) {
+        audio.currentTime = currentTrack.startTime;
+      }
+    }
+
+    if (isPlaying) {
+      if (audio.currentTime === 0 && currentTrack.startTime !== undefined) {
+        audio.currentTime = currentTrack.startTime;
+      }
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((e) => console.warn('Audio play blocked:', e));
+      }
+    } else {
+      audio.pause();
+    }
+  }, [isPlaying, currentTrack]);
+
   const handleOpenEnvelope = () => {
     setHasOpenedEnvelope(true);
     setIsPlaying(true);
   };
 
   const handleToggleMusic = () => {
-    setIsPlaying((prev) => !prev);
-  };
-
-  const handleSelectTrack = (track: SongTrack) => {
-    setCurrentTrack(track);
-    setIsPlaying(true);
+    setIsPlaying(!isPlaying);
   };
 
   const handleNextTrack = () => {
@@ -51,96 +63,71 @@ export const App: React.FC = () => {
     setIsPlaying(true);
   };
 
-  const handleAddLove = () => {
-    setLoveCount((prev) => prev + 1);
-  };
-
-  const handleAddFlower = () => {
-    setFlowerCount((prev) => prev + 1);
-  };
-
-  const handleToggleFlowerRain = () => {
-    setFlowerRainEnabled((prev) => !prev);
-  };
+  const handleAddLove = () => setLoveCount((prev) => prev + 1);
+  const handleAddFlower = () => setFlowerCount((prev) => prev + 1);
 
   return (
-    <div className="min-h-screen bg-[#3D040A] text-[#1F1D1B] font-sans selection:bg-rose-600 selection:text-white relative">
-      {/* 1. Envelope Opening Screen (like TikTok reference) */}
+    <div className="min-h-screen relative font-sans selection:bg-rose-600 selection:text-white flex flex-col">
+      
+      {/* Hidden Audio Player */}
+      <audio
+        ref={audioRef}
+        src={getAssetUrl(currentTrack.audioSrc)}
+        onEnded={handleNextTrack}
+        onLoadedMetadata={() => {
+          if (audioRef.current && currentTrack.startTime !== undefined && audioRef.current.currentTime === 0) {
+            audioRef.current.currentTime = currentTrack.startTime;
+          }
+        }}
+        preload="auto"
+      />
+
+      {/* Background Floral Wallpaper (Main Content Background) */}
+      <div 
+        className="fixed inset-0 z-0 pointer-events-none opacity-40"
+        style={{
+          backgroundColor: '#FDF8F0',
+          backgroundImage: `url('${getAssetUrl('/bunga/output-onlinepngtools.png')}')`,
+          backgroundSize: '800px',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'repeat',
+        }}
+      />
+      <div className="fixed inset-0 z-0 bg-[#FDF8F0]/70 pointer-events-none" />
+
+      {/* Navbar (Optional, keeping it for the navigation) */}
+      <div className="relative z-40">
+        <Navbar
+          isPlaying={isPlaying}
+          onToggleMusic={handleToggleMusic}
+          loveCount={loveCount}
+          onAddLove={handleAddLove}
+          flowerCount={flowerCount}
+          onAddFlower={handleAddFlower}
+        />
+      </div>
+
+      {/* Opening Envelope Screen */}
       {!hasOpenedEnvelope && (
         <EnvelopeOpening onOpen={handleOpenEnvelope} />
       )}
 
-      {/* Dynamic Visual Background (Glows, Film Grain, Grid, Editorial Markers) */}
-      <BackgroundAesthetics />
-
-      {/* Background Falling Flower Petals Animation */}
-      <FlowerRain enabled={flowerRainEnabled} />
-
-      {/* Navigation Header */}
-      <Navbar
-        isPlaying={isPlaying}
-        onToggleMusic={handleToggleMusic}
-        loveCount={loveCount}
-        onAddLove={handleAddLove}
-        flowerCount={flowerCount}
-        onAddFlower={handleAddFlower}
-      />
-
-      {/* Main Content Sections with Staggered Scroll Reveal Transitions */}
-      <main className="relative z-10 space-y-6 sm:space-y-12 pb-16">
-        {/* Card 1: Top Hero Panel */}
-        <AnimatedSection delay={100}>
-          <HeroEditorial />
-        </AnimatedSection>
-
-        {/* Card 2: Center Ribbon Panel */}
-        <AnimatedSection delay={150}>
-          <CenterCalligraphyRibbon />
-        </AnimatedSection>
-
-        {/* Card 3: 3 Vinyl Records Panel */}
-        <AnimatedSection delay={200}>
-          <LoveSongsVinyl
-            currentTrack={currentTrack}
-            isPlaying={isPlaying}
-            onSelectTrack={handleSelectTrack}
-            onToggleMusic={handleToggleMusic}
-          />
-        </AnimatedSection>
-
-        {/* Card 4: Clean Photobook Carousel with all 67 photos */}
-        <AnimatedSection delay={200}>
-          <PhotobookCarousel />
-        </AnimatedSection>
-
-        {/* Card 5: Short Sweet Love Note in English & Action Buttons */}
-        <AnimatedSection delay={150}>
-          <MinimalLoveLetter
-            onAddLove={handleAddLove}
-            onAddFlower={handleAddFlower}
-          />
-        </AnimatedSection>
+      {/* Main Content (Cassette Player) */}
+      <main className="relative z-10 flex-1 flex flex-col items-center justify-center p-4">
+        <CassettePlayer 
+          currentTrack={currentTrack}
+          isPlaying={isPlaying}
+          onTogglePlay={handleToggleMusic}
+          onNextTrack={handleNextTrack}
+          onPrevTrack={handlePrevTrack}
+        />
+        
+        {/* Simple message below cassette */}
+        <p className="mt-12 font-editorial italic text-stone-600 text-lg text-center max-w-md">
+          "A playlist of our forever moments. Just for you, Eva."
+        </p>
       </main>
 
-      {/* Footer */}
-      <Footer />
-
-      {/* Floating Flower Action Widget */}
-      <FlowerWidget
-        flowerRainEnabled={flowerRainEnabled}
-        onToggleFlowerRain={handleToggleFlowerRain}
-        flowerCount={flowerCount}
-        onAddFlower={handleAddFlower}
-      />
-
-      {/* Sticky Bottom Audio Player Bar */}
-      <MusicPlayerBar
-        currentTrack={currentTrack}
-        isPlaying={isPlaying}
-        onTogglePlay={handleToggleMusic}
-        onNextTrack={handleNextTrack}
-        onPrevTrack={handlePrevTrack}
-      />
     </div>
   );
 };
