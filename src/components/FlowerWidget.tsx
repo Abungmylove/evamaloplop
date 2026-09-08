@@ -62,12 +62,11 @@ export const FlowerWidget: React.FC<FlowerWidgetProps> = ({
         <button
           onClick={handleActionClick}
           className="group flex items-center space-x-2 pl-2 pr-4 py-2 rounded-full bg-gradient-to-r from-rose-500 via-rose-600 to-pink-600 text-white shadow-lg hover:shadow-rose-400/40 hover:scale-105 active:scale-95 transition-all border-2 border-white"
-          title="Klik untuk lempar bunga ke Eva!"
         >
           {/* Flower Thumbnail with Pulse */}
           <div className="relative w-8 h-8 rounded-full overflow-hidden border-2 border-white shadow-xs shrink-0 group-hover:rotate-45 transition-transform duration-500">
             <img
-              src="/bunga/flower-1.jpg"
+              src={`${import.meta.env.BASE_URL}bunga/flower-1.jpg`}
               alt="Bunga untuk Eva"
               className="w-full h-full object-cover"
             />
@@ -90,7 +89,6 @@ export const FlowerWidget: React.FC<FlowerWidgetProps> = ({
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-md border border-rose-200 text-rose-600 hover:bg-rose-50 hover:text-rose-700 transition-all flex items-center justify-center shadow-md hover:scale-105 active:scale-95"
-          title="Buka Buket Bunga & Pengaturan"
         >
           <Layers className="w-4 h-4" />
         </button>
@@ -105,7 +103,6 @@ export const FlowerWidget: React.FC<FlowerWidgetProps> = ({
             <button
               onClick={() => setIsOpen(false)}
               className="absolute top-5 right-5 w-8 h-8 rounded-full bg-stone-100 hover:bg-rose-600 hover:text-white transition-colors flex items-center justify-center text-stone-500"
-              title="Tutup Widget"
             >
               <X className="w-4 h-4" />
             </button>
@@ -128,7 +125,7 @@ export const FlowerWidget: React.FC<FlowerWidgetProps> = ({
             <div className="grid grid-cols-2 gap-3.5">
               <div className="relative group rounded-2xl overflow-hidden border-2 border-rose-100 aspect-square shadow-xs bg-stone-50">
                 <img
-                  src="/bunga/flower-1.jpg"
+                  src={`${import.meta.env.BASE_URL}bunga/flower-1.jpg`}
                   alt="Bunga 1"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -139,7 +136,7 @@ export const FlowerWidget: React.FC<FlowerWidgetProps> = ({
 
               <div className="relative group rounded-2xl overflow-hidden border-2 border-rose-100 aspect-square shadow-xs bg-stone-50">
                 <img
-                  src="/bunga/flower-2.jpg"
+                  src={`${import.meta.env.BASE_URL}bunga/flower-2.jpg`}
                   alt="Bunga 2"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />

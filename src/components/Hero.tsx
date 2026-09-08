@@ -176,7 +176,7 @@ export const Hero: React.FC = () => {
             {/* Floral Accent Stamp (Because Eva loves flowers) */}
             <div className="absolute -bottom-8 -left-2 sm:-bottom-6 sm:-left-8 w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-white shadow-lg group-hover:rotate-6 transition-transform duration-500 bg-rose-50">
               <img
-                src="/bunga/flower-1.jpg"
+                src={`${import.meta.env.BASE_URL}bunga/flower-1.jpg`}
                 alt="Flowers for Eva"
                 className="w-full h-full object-cover"
               />

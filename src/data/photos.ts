@@ -573,22 +573,6 @@ export const ALL_EVA_PHOTOS: PhotoItem[] = [
     "category": "gemes",
     "categoryLabel": "PAP & Selfie Gemes",
     "isVideo": false
-  },
-  {
-    "id": "flower-01",
-    "src": "/bunga/flower-1.jpg",
-    "caption": "Bunga Cantik untuk Eva 01",
-    "category": "bunga",
-    "categoryLabel": "Bunga Cantik",
-    "isVideo": false
-  },
-  {
-    "id": "flower-02",
-    "src": "/bunga/flower-2.jpg",
-    "caption": "Bunga Cantik untuk Eva 02",
-    "category": "bunga",
-    "categoryLabel": "Bunga Cantik",
-    "isVideo": false
   }
 ];
 
