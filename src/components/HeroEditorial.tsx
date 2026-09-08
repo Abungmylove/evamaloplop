@@ -1,5 +1,6 @@
 ﻿import React, { useState, useEffect } from 'react';
 import { Heart, Sparkles, Clock, Calendar } from 'lucide-react';
+import { getAssetUrl } from '../utils/assetUrl';
 
 interface TimeElapsed {
   days: number;
@@ -78,7 +79,7 @@ export const HeroEditorial: React.FC = () => {
           {/* Frame 1 (Left) */}
           <div className="relative group rounded-xl overflow-hidden border-2 border-[#8B1220] aspect-[3/4] bg-stone-100 shadow-md">
             <img
-              src="/photos/photo-15-dipantai-sama-aku-1-.jpeg"
+              src={getAssetUrl('/photos/photo-15-dipantai-sama-aku-1-.jpeg')}
               alt="At the Beach"
               className="w-full h-full object-cover filter grayscale contrast-110 hover:grayscale-0 transition-all duration-700"
             />
@@ -90,7 +91,7 @@ export const HeroEditorial: React.FC = () => {
           {/* Frame 2 (Center - Featured) */}
           <div className="relative group rounded-xl overflow-hidden border-2 border-[#8B1220] aspect-[3/4] bg-stone-100 shadow-xl sm:-translate-y-2">
             <img
-              src="/photos/eva-main.jpg"
+              src={getAssetUrl('/photos/eva-main.jpg')}
               alt="Yosefa Meing Siung Adjid"
               className="w-full h-full object-cover filter grayscale contrast-110 hover:grayscale-0 transition-all duration-700"
             />
@@ -105,7 +106,7 @@ export const HeroEditorial: React.FC = () => {
           {/* Frame 3 (Right) */}
           <div className="relative group rounded-xl overflow-hidden border-2 border-[#8B1220] aspect-[3/4] bg-stone-100 shadow-md">
             <img
-              src="/photos/photo-06-difotoin-desi-ini-cantik-bgt-1-.jpeg"
+              src={getAssetUrl('/photos/photo-06-difotoin-desi-ini-cantik-bgt-1-.jpeg')}
               alt="Candid Beauty"
               className="w-full h-full object-cover filter grayscale contrast-110 hover:grayscale-0 transition-all duration-700"
             />
@@ -155,7 +156,7 @@ export const HeroEditorial: React.FC = () => {
               </span>
             </div>
 
-            {/* Seconds (Realtime live tick) */}
+            {/* Seconds */}
             <div className="bg-white rounded-xl border-2 border-[#8B1220] p-2.5 sm:p-4 shadow-sm text-center relative overflow-hidden bg-rose-50/40">
               <span className="font-serif text-2xl sm:text-4xl font-black text-[#8B1220] block leading-none animate-pulse">
                 {String(timeElapsed.seconds).padStart(2, '0')}

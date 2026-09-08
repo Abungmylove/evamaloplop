@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import { Play, Pause, ExternalLink } from 'lucide-react';
 import { SongTrack, LOVE_SOUNDTRACKS } from '../data/soundtracks';
+import { getAssetUrl } from '../utils/assetUrl';
 
 interface LoveSongsVinylProps {
   currentTrack: SongTrack;
@@ -79,7 +80,7 @@ export const LoveSongsVinyl: React.FC<LoveSongsVinylProps> = ({
                     isSelected ? 'border-[#8B1220] ring-4 ring-rose-500/20 scale-105' : 'border-[#8B1220]/60 group-hover:border-[#8B1220]'
                   }`}>
                     <img
-                      src={track.coverImage}
+                      src={getAssetUrl(track.coverImage)}
                       alt={track.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { ALL_EVA_PHOTOS, CATEGORIES, PhotoItem } from '../data/photos';
 import { ChevronLeft, ChevronRight, Maximize2, X, Play, Pause, Film } from 'lucide-react';
+import { getAssetUrl } from '../utils/assetUrl';
 
 export const PhotobookCarousel: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
@@ -64,18 +65,17 @@ export const PhotobookCarousel: React.FC = () => {
           ))}
         </div>
 
-        {/* Big Slide Stage */}
-        <div className="relative rounded-2xl border-2 border-[#8B1220] bg-stone-50 overflow-hidden min-h-[380px] sm:min-h-[520px] flex items-center justify-center p-4">
+        {/* Main Stage: Carousel Display Frame */}
+        <div className="relative aspect-[4/3] sm:aspect-[16/10] bg-stone-50 rounded-2xl overflow-hidden border-2 border-stone-200 flex items-center justify-center p-2 sm:p-6 shadow-inner">
           {currentPhoto.isVideo ? (
             <video
-              src={currentPhoto.src}
+              src={getAssetUrl(currentPhoto.src)}
               controls
-              playsInline
-              className="max-h-[60vh] w-auto max-w-full rounded-xl object-contain shadow-sm"
+              className="max-h-[60vh] w-auto max-w-full rounded-xl shadow-md"
             />
           ) : (
             <img
-              src={currentPhoto.src}
+              src={getAssetUrl(currentPhoto.src)}
               alt={currentPhoto.caption}
               className="max-h-[60vh] w-auto max-w-full rounded-xl object-contain shadow-md cursor-zoom-in transition-transform duration-300 hover:scale-[1.01]"
               onClick={() => setIsLightboxOpen(true)}
@@ -100,7 +100,7 @@ export const PhotobookCarousel: React.FC = () => {
           </button>
         </div>
 
-        {/* Bottom Slide Info & Controls (Ref Style: back ... page X of Y ... next) */}
+        {/* Bottom Slide Info & Controls */}
         <div className="flex items-center justify-between text-xs font-mono-tag text-[#7A7067] border-t border-stone-100 pt-4">
           <button
             onClick={handlePrev}
@@ -140,14 +140,13 @@ export const PhotobookCarousel: React.FC = () => {
             >
               {photo.isVideo ? (
                 <div className="w-full h-full bg-stone-900 flex items-center justify-center text-white">
-                  <Film className="w-4 h-4" />
+                  <Film className="w-5 h-5" />
                 </div>
               ) : (
                 <img
-                  src={photo.src}
+                  src={getAssetUrl(photo.src)}
                   alt={photo.caption}
                   className="w-full h-full object-cover"
-                  loading="lazy"
                 />
               )}
             </button>
@@ -158,21 +157,37 @@ export const PhotobookCarousel: React.FC = () => {
 
       {/* Lightbox Modal */}
       {isLightboxOpen && (
-        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 animate-fadeIn">
+        <div
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4"
+          onClick={() => setIsLightboxOpen(false)}
+        >
           <button
             onClick={() => setIsLightboxOpen(false)}
-            className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/20 text-white hover:bg-rose-600 transition-colors flex items-center justify-center z-10"
+            className="absolute top-6 right-6 text-white/80 hover:text-white p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all"
+            title="Close"
           >
-            <X className="w-5 h-5" />
+            <X className="w-6 h-6" />
           </button>
 
-          <div className="max-w-4xl max-h-[85vh] flex flex-col items-center">
-            <img
-              src={currentPhoto.src}
-              alt={currentPhoto.caption}
-              className="max-h-[75vh] w-auto object-contain rounded-xl border border-white/20 shadow-2xl"
-            />
-            <p className="mt-4 text-center font-editorial italic text-lg text-white capitalize">
+          <div
+            className="max-w-4xl max-h-[90vh] flex flex-col items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {currentPhoto.isVideo ? (
+              <video
+                src={getAssetUrl(currentPhoto.src)}
+                controls
+                autoPlay
+                className="max-h-[80vh] w-auto rounded-lg shadow-2xl"
+              />
+            ) : (
+              <img
+                src={getAssetUrl(currentPhoto.src)}
+                alt={currentPhoto.caption}
+                className="max-h-[80vh] w-auto rounded-lg shadow-2xl object-contain"
+              />
+            )}
+            <p className="font-editorial italic text-white text-lg mt-4 text-center">
               {currentPhoto.caption}
             </p>
           </div>

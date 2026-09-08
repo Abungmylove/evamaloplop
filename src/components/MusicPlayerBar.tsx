@@ -1,6 +1,7 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Play, Pause, Volume2, VolumeX, ExternalLink, SkipForward, SkipBack } from 'lucide-react';
 import { SongTrack } from '../data/soundtracks';
+import { getAssetUrl } from '../utils/assetUrl';
 
 interface MusicPlayerBarProps {
   currentTrack: SongTrack;
@@ -63,7 +64,7 @@ export const MusicPlayerBar: React.FC<MusicPlayerBarProps> = ({
       {/* Native HTML5 Audio Element */}
       <audio
         ref={audioRef}
-        src={currentTrack.audioSrc}
+        src={getAssetUrl(currentTrack.audioSrc)}
         onTimeUpdate={handleTimeUpdate}
         onEnded={handleEnded}
         preload="auto"
