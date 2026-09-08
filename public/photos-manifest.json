@@ -1,0 +1,457 @@
+﻿[
+    {
+        "id":  1,
+        "originalTitle":  "aiko",
+        "filename":  "photo-01-aiko.jpeg",
+        "category":  "other",
+        "isVideo":  false
+    },
+    {
+        "id":  2,
+        "originalTitle":  "di cafe malang (sama aku)",
+        "filename":  "photo-02-di-cafe-malang-sama-aku-.jpeg",
+        "category":  "malang",
+        "isVideo":  false
+    },
+    {
+        "id":  3,
+        "originalTitle":  "di solaria sama aku (1)",
+        "filename":  "photo-03-di-solaria-sama-aku-1-.jpeg",
+        "category":  "malang",
+        "isVideo":  false
+    },
+    {
+        "id":  4,
+        "originalTitle":  "di solaria sama aku (2)",
+        "filename":  "photo-04-di-solaria-sama-aku-2-.jpeg",
+        "category":  "malang",
+        "isVideo":  false
+    },
+    {
+        "id":  5,
+        "originalTitle":  "di solaria sama aku (3)",
+        "filename":  "photo-05-di-solaria-sama-aku-3-.jpeg",
+        "category":  "malang",
+        "isVideo":  false
+    },
+    {
+        "id":  6,
+        "originalTitle":  "difotoin desi (INI CANTIK BGT) (1)",
+        "filename":  "photo-06-difotoin-desi-ini-cantik-bgt-1-.jpeg",
+        "category":  "desi",
+        "isVideo":  false
+    },
+    {
+        "id":  7,
+        "originalTitle":  "difotoin desi (INI CANTIK BGT) (2)",
+        "filename":  "photo-07-difotoin-desi-ini-cantik-bgt-2-.jpeg",
+        "category":  "desi",
+        "isVideo":  false
+    },
+    {
+        "id":  8,
+        "originalTitle":  "difotoin desi (INI CANTIK BGT) (3)",
+        "filename":  "photo-08-difotoin-desi-ini-cantik-bgt-3-.jpeg",
+        "category":  "desi",
+        "isVideo":  false
+    },
+    {
+        "id":  9,
+        "originalTitle":  "difotoin desi (INI CANTIK BGT) (4)",
+        "filename":  "photo-09-difotoin-desi-ini-cantik-bgt-4-.jpeg",
+        "category":  "desi",
+        "isVideo":  false
+    },
+    {
+        "id":  10,
+        "originalTitle":  "difotoin desi (INI CANTIK BGT) (5)",
+        "filename":  "photo-10-difotoin-desi-ini-cantik-bgt-5-.jpeg",
+        "category":  "desi",
+        "isVideo":  false
+    },
+    {
+        "id":  11,
+        "originalTitle":  "difotoin desi (INI CANTIK BGT) (6)",
+        "filename":  "photo-11-difotoin-desi-ini-cantik-bgt-6-.jpeg",
+        "category":  "desi",
+        "isVideo":  false
+    },
+    {
+        "id":  12,
+        "originalTitle":  "difotoin desi (INI CANTIK BGT) (7)",
+        "filename":  "photo-12-difotoin-desi-ini-cantik-bgt-7-.jpeg",
+        "category":  "desi",
+        "isVideo":  false
+    },
+    {
+        "id":  13,
+        "originalTitle":  "difotoin desi (INI CANTIK BGT) (8)",
+        "filename":  "photo-13-difotoin-desi-ini-cantik-bgt-8-.jpeg",
+        "category":  "desi",
+        "isVideo":  false
+    },
+    {
+        "id":  14,
+        "originalTitle":  "difotoin desi (INI CANTIK BGT) (9)",
+        "filename":  "photo-14-difotoin-desi-ini-cantik-bgt-9-.jpeg",
+        "category":  "desi",
+        "isVideo":  false
+    },
+    {
+        "id":  15,
+        "originalTitle":  "dipantai sama aku (1)",
+        "filename":  "photo-15-dipantai-sama-aku-1-.jpeg",
+        "category":  "pantai",
+        "isVideo":  false
+    },
+    {
+        "id":  16,
+        "originalTitle":  "dipantai sama aku (2)",
+        "filename":  "photo-16-dipantai-sama-aku-2-.jpeg",
+        "category":  "pantai",
+        "isVideo":  false
+    },
+    {
+        "id":  17,
+        "originalTitle":  "dipantai sama aku (3)",
+        "filename":  "photo-17-dipantai-sama-aku-3-.jpeg",
+        "category":  "pantai",
+        "isVideo":  false
+    },
+    {
+        "id":  18,
+        "originalTitle":  "fase shorthair (1)",
+        "filename":  "photo-18-fase-shorthair-1-.jpeg",
+        "category":  "shorthair",
+        "isVideo":  false
+    },
+    {
+        "id":  19,
+        "originalTitle":  "fase shorthair (2)",
+        "filename":  "photo-19-fase-shorthair-2-.jpeg",
+        "category":  "shorthair",
+        "isVideo":  false
+    },
+    {
+        "id":  20,
+        "originalTitle":  "fase shorthair (3)",
+        "filename":  "photo-20-fase-shorthair-3-.jpeg",
+        "category":  "shorthair",
+        "isVideo":  false
+    },
+    {
+        "id":  21,
+        "originalTitle":  "fase shorthair (4)",
+        "filename":  "photo-21-fase-shorthair-4-.jpeg",
+        "category":  "shorthair",
+        "isVideo":  false
+    },
+    {
+        "id":  22,
+        "originalTitle":  "fase shorthair (5)",
+        "filename":  "photo-22-fase-shorthair-5-.jpeg",
+        "category":  "shorthair",
+        "isVideo":  false
+    },
+    {
+        "id":  23,
+        "originalTitle":  "foto di cafe  (1)",
+        "filename":  "photo-23-foto-di-cafe-1-.jpeg",
+        "category":  "malang",
+        "isVideo":  false
+    },
+    {
+        "id":  24,
+        "originalTitle":  "foto di cafe  (3)",
+        "filename":  "photo-24-foto-di-cafe-3-.jpeg",
+        "category":  "malang",
+        "isVideo":  false
+    },
+    {
+        "id":  25,
+        "originalTitle":  "foto di cafe  (4)",
+        "filename":  "photo-25-foto-di-cafe-4-.jpeg",
+        "category":  "malang",
+        "isVideo":  false
+    },
+    {
+        "id":  26,
+        "originalTitle":  "foto di kayutangan malang (1)",
+        "filename":  "photo-26-foto-di-kayutangan-malang-1-.jpg",
+        "category":  "malang",
+        "isVideo":  false
+    },
+    {
+        "id":  27,
+        "originalTitle":  "foto di kayutangan malang (2)",
+        "filename":  "photo-27-foto-di-kayutangan-malang-2-.jpg",
+        "category":  "malang",
+        "isVideo":  false
+    },
+    {
+        "id":  28,
+        "originalTitle":  "foto di kayutangan malang (3)",
+        "filename":  "photo-28-foto-di-kayutangan-malang-3-.jpg",
+        "category":  "malang",
+        "isVideo":  false
+    },
+    {
+        "id":  29,
+        "originalTitle":  "foto di kayutangan malang (4)",
+        "filename":  "photo-29-foto-di-kayutangan-malang-4-.jpg",
+        "category":  "malang",
+        "isVideo":  false
+    },
+    {
+        "id":  30,
+        "originalTitle":  "foto model  (1)",
+        "filename":  "photo-30-foto-model-1-.jpeg",
+        "category":  "karya",
+        "isVideo":  false
+    },
+    {
+        "id":  31,
+        "originalTitle":  "foto model  (2)",
+        "filename":  "photo-31-foto-model-2-.jpeg",
+        "category":  "karya",
+        "isVideo":  false
+    },
+    {
+        "id":  32,
+        "originalTitle":  "foto model  (3)",
+        "filename":  "photo-32-foto-model-3-.jpeg",
+        "category":  "karya",
+        "isVideo":  false
+    },
+    {
+        "id":  33,
+        "originalTitle":  "foto model  (4)",
+        "filename":  "photo-33-foto-model-4-.jpeg",
+        "category":  "karya",
+        "isVideo":  false
+    },
+    {
+        "id":  34,
+        "originalTitle":  "foto sama aku 2 (1)",
+        "filename":  "photo-34-foto-sama-aku-2-1-.jpeg",
+        "category":  "berdua",
+        "isVideo":  false
+    },
+    {
+        "id":  35,
+        "originalTitle":  "foto sama aku 2 (2)",
+        "filename":  "photo-35-foto-sama-aku-2-2-.jpeg",
+        "category":  "berdua",
+        "isVideo":  false
+    },
+    {
+        "id":  36,
+        "originalTitle":  "foto sama aku",
+        "filename":  "photo-36-foto-sama-aku.jpeg",
+        "category":  "berdua",
+        "isVideo":  false
+    },
+    {
+        "id":  37,
+        "originalTitle":  "foto sama bunga (1)",
+        "filename":  "photo-37-foto-sama-bunga-1-.jpeg",
+        "category":  "bunga",
+        "isVideo":  false
+    },
+    {
+        "id":  38,
+        "originalTitle":  "foto sama bunga (2)",
+        "filename":  "photo-38-foto-sama-bunga-2-.jpeg",
+        "category":  "bunga",
+        "isVideo":  false
+    },
+    {
+        "id":  39,
+        "originalTitle":  "foto sama bunga (3)",
+        "filename":  "photo-39-foto-sama-bunga-3-.jpeg",
+        "category":  "bunga",
+        "isVideo":  false
+    },
+    {
+        "id":  40,
+        "originalTitle":  "foto studio lucu",
+        "filename":  "photo-40-foto-studio-lucu.jpg",
+        "category":  "karya",
+        "isVideo":  false
+    },
+    {
+        "id":  41,
+        "originalTitle":  "hasil karya (1)",
+        "filename":  "photo-41-hasil-karya-1-.jpeg",
+        "category":  "karya",
+        "isVideo":  false
+    },
+    {
+        "id":  42,
+        "originalTitle":  "hasil karya (2)",
+        "filename":  "photo-42-hasil-karya-2-.jpeg",
+        "category":  "karya",
+        "isVideo":  false
+    },
+    {
+        "id":  43,
+        "originalTitle":  "hasil karya (3)",
+        "filename":  "photo-43-hasil-karya-3-.jpeg",
+        "category":  "karya",
+        "isVideo":  false
+    },
+    {
+        "id":  44,
+        "originalTitle":  "hasil karya (4)",
+        "filename":  "photo-44-hasil-karya-4-.jpeg",
+        "category":  "karya",
+        "isVideo":  false
+    },
+    {
+        "id":  45,
+        "originalTitle":  "kolase foto lucu (1)",
+        "filename":  "photo-45-kolase-foto-lucu-1-.jpeg",
+        "category":  "candid",
+        "isVideo":  false
+    },
+    {
+        "id":  46,
+        "originalTitle":  "kolase foto lucu (2)",
+        "filename":  "photo-46-kolase-foto-lucu-2-.jpeg",
+        "category":  "candid",
+        "isVideo":  false
+    },
+    {
+        "id":  47,
+        "originalTitle":  "kolase foto lucu (3)",
+        "filename":  "photo-47-kolase-foto-lucu-3-.jpeg",
+        "category":  "candid",
+        "isVideo":  false
+    },
+    {
+        "id":  48,
+        "originalTitle":  "masa kecil (1)",
+        "filename":  "photo-48-masa-kecil-1-.jpeg",
+        "category":  "masakecil",
+        "isVideo":  false
+    },
+    {
+        "id":  49,
+        "originalTitle":  "masa kecil (1)",
+        "filename":  "photo-49-masa-kecil-1-.mp4",
+        "category":  "masakecil",
+        "isVideo":  true
+    },
+    {
+        "id":  50,
+        "originalTitle":  "masa kecil (2)",
+        "filename":  "photo-50-masa-kecil-2-.jpeg",
+        "category":  "masakecil",
+        "isVideo":  false
+    },
+    {
+        "id":  51,
+        "originalTitle":  "pap gemes (1)",
+        "filename":  "photo-51-pap-gemes-1-.jpeg",
+        "category":  "gemes",
+        "isVideo":  false
+    },
+    {
+        "id":  52,
+        "originalTitle":  "pap gemes (2)",
+        "filename":  "photo-52-pap-gemes-2-.jpeg",
+        "category":  "gemes",
+        "isVideo":  false
+    },
+    {
+        "id":  53,
+        "originalTitle":  "pap gemes (3)",
+        "filename":  "photo-53-pap-gemes-3-.jpeg",
+        "category":  "gemes",
+        "isVideo":  false
+    },
+    {
+        "id":  54,
+        "originalTitle":  "pap gemes (4)",
+        "filename":  "photo-54-pap-gemes-4-.jpeg",
+        "category":  "gemes",
+        "isVideo":  false
+    },
+    {
+        "id":  55,
+        "originalTitle":  "pas foto",
+        "filename":  "photo-55-pas-foto.jpg",
+        "category":  "other",
+        "isVideo":  false
+    },
+    {
+        "id":  56,
+        "originalTitle":  "selfie lucu (1)",
+        "filename":  "photo-56-selfie-lucu-1-.jpeg",
+        "category":  "gemes",
+        "isVideo":  false
+    },
+    {
+        "id":  57,
+        "originalTitle":  "selfie lucu (2)",
+        "filename":  "photo-57-selfie-lucu-2-.jpeg",
+        "category":  "gemes",
+        "isVideo":  false
+    },
+    {
+        "id":  58,
+        "originalTitle":  "selfie makeup gemes (1)",
+        "filename":  "photo-58-selfie-makeup-gemes-1-.jpeg",
+        "category":  "gemes",
+        "isVideo":  false
+    },
+    {
+        "id":  59,
+        "originalTitle":  "selfie makeup gemes (2)",
+        "filename":  "photo-59-selfie-makeup-gemes-2-.jpeg",
+        "category":  "gemes",
+        "isVideo":  false
+    },
+    {
+        "id":  60,
+        "originalTitle":  "selfie makeup gemes (3)",
+        "filename":  "photo-60-selfie-makeup-gemes-3-.jpeg",
+        "category":  "gemes",
+        "isVideo":  false
+    },
+    {
+        "id":  61,
+        "originalTitle":  "webcam laptop gemes (1)",
+        "filename":  "photo-61-webcam-laptop-gemes-1-.jpeg",
+        "category":  "gemes",
+        "isVideo":  false
+    },
+    {
+        "id":  62,
+        "originalTitle":  "webcam laptop gemes (2)",
+        "filename":  "photo-62-webcam-laptop-gemes-2-.jpeg",
+        "category":  "gemes",
+        "isVideo":  false
+    },
+    {
+        "id":  63,
+        "originalTitle":  "webcam laptop gemes (3)",
+        "filename":  "photo-63-webcam-laptop-gemes-3-.jpeg",
+        "category":  "gemes",
+        "isVideo":  false
+    },
+    {
+        "id":  64,
+        "originalTitle":  "webcam laptop gemes (4)",
+        "filename":  "photo-64-webcam-laptop-gemes-4-.jpeg",
+        "category":  "gemes",
+        "isVideo":  false
+    },
+    {
+        "id":  65,
+        "originalTitle":  "webcam laptop gemes (5)",
+        "filename":  "photo-65-webcam-laptop-gemes-5-.jpeg",
+        "category":  "gemes",
+        "isVideo":  false
+    }
+]

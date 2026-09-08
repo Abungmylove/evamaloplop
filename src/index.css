@@ -1,0 +1,135 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #3D040A;
+    --card-bg: #FFFFFF;
+  }
+
+  body {
+    background-color: #3D040A;
+    color: #1F1D1B;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Typography Styles */
+.font-serif-title {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-editorial {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-script {
+  font-family: 'Alex Brush', cursive;
+}
+
+.font-italianno {
+  font-family: 'Italianno', cursive;
+}
+
+.font-mono-tag {
+  font-family: 'Space Mono', monospace;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #3D040A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8B1220;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B91C1C;
+}
+
+/* Barcode simulation effect */
+.barcode-pattern {
+  background: repeating-linear-gradient(
+    90deg,
+    currentColor,
+    currentColor 2px,
+    transparent 2px,
+    transparent 4px,
+    currentColor 4px,
+    currentColor 5px,
+    transparent 5px,
+    transparent 8px,
+    currentColor 8px,
+    currentColor 12px,
+    transparent 12px,
+    transparent 14px
+  );
+}
+
+/* Spinning Vinyl Record */
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 8s linear infinite;
+}
+
+/* Elegant Floating Aura Orbs */
+@keyframes floatSlow1 {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-40px) scale(1.08); }
+}
+
+@keyframes floatSlow2 {
+  0%, 100% { transform: translateY(0px) scale(1.05); }
+  50% { transform: translateY(35px) scale(0.95); }
+}
+
+.animate-float-1 {
+  animation: floatSlow1 16s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: floatSlow2 20s ease-in-out infinite;
+}
+
+/* Subtle Film Grain Noise Texture */
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* Subtle Grid Accent Pattern */
+.bg-grid-subtle {
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Page Transition / Section Reveal Animations */
+@keyframes revealSection {
+  0% {
+    opacity: 0;
+    transform: translateY(32px) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.section-reveal {
+  opacity: 0;
+  animation: revealSection 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
